@@ -9,8 +9,9 @@ ShortendLink is a simple tool that shortens long URLs into more manageable and s
 - Provides a simple and user-friendly interface for link management.
 
 ## Installation
-1. Clone the repository using the following command:
+1. Clone the repository using the following command: git clone (link of the repo)
 2. Install the required dependencies using: pip install -r requirements.txt
+3. create virtual environment
 ## Usage
 1. Run the application using the following command:
 python manage.py createsuperuser

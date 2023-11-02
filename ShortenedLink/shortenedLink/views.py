@@ -1,9 +1,15 @@
 from rest_framework import generics
 from rest_framework.response import Response
-from .serializers import ShortenedLinkSerializer
-from .models import ShortenedLink
+from .serializers import ShortenedLinkSerializer , StudentSerializer
+from .models import ShortenedLink , Student
 from rest_framework.permissions import IsAuthenticated
 import uuid
+
+
+class StudentListCreateView(generics.ListCreateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+    permission_classes = [IsAuthenticated]
 
 class ShortenedLinkListCreateView(generics.ListCreateAPIView):
     serializer_class = ShortenedLinkSerializer
@@ -22,4 +28,5 @@ class ShortenedLinkListCreateView(generics.ListCreateAPIView):
 def generate_short_link(original_link):
     unique_id = str(uuid.uuid4())[:8]  # Extract the first 8 characters of the UUID
     return unique_id
+
 

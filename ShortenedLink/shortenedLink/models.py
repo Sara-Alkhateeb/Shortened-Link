@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.utils import IntegrityError
 
+
 class ShortenedLink(models.Model):
     original_link = models.URLField()
     short_link = models.CharField(max_length=100, unique=True, blank=True)  # Allow it to be blank
@@ -22,3 +23,16 @@ class ShortenedLink(models.Model):
 
     def __str__(self):
         return self.short_link
+    
+
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    date_of_birth = models.DateField()
+    nationality = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=20)
+    address = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
